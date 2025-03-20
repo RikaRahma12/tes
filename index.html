@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #f8f9fa; color: #333; }
+        .container { max-width: 600px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #d63384; }
+        .countdown { font-size: 24px; font-weight: bold; margin: 20px 0; }
+        .map iframe { width: 100%; height: 300px; border-radius: 10px; }
+        .rsvp-form { margin-top: 20px; }
+        .rsvp-form input, .rsvp-form button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .rsvp-form button { background: #d63384; color: white; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Undangan Pernikahan</h1>
+        <p>Dengan penuh cinta, kami mengundang Anda ke pernikahan kami</p>
+        <h2>Rika & Alex</h2>
+        <p>Sabtu, 10 Agustus 2025 | 10:00 WIB</p>
+        
+        <div class="countdown" id="countdown"></div>
+        
+        <h3>Lokasi Acara</h3>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?..." allowfullscreen=""></iframe>
+        </div>
+        
+        <h3>Konfirmasi Kehadiran (RSVP)</h3>
+        <form class="rsvp-form">
+            <input type="text" id="name" placeholder="Nama Anda" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
+    
+    <script>
+        function countdownTimer() {
+            const weddingDate = new Date("August 10, 2025 10:00:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+            }, 1000);
+        }
+        countdownTimer();
+    </script>
+</body>
+</html>
